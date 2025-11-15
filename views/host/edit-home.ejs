@@ -1,0 +1,64 @@
+<%- include('../partials/head') %>
+
+    <body>
+        <%- include('../partials/header') %>
+            <main class="flex flex-col items-center mt-15">
+                <div class="w-fit shadow-lg shadow-red-300 rounded-lg text-center p-8">
+                    <h2 class="text-2xl text-red-600 font-semibold">
+                        <%= editing ? "Edit" : "Register" %> Your House here
+                    </h2>
+                    <form class="flex flex-col items-center w-full"
+                        action="/host/<%= editing ? 'edit-home' : 'add-home' %>" method="POST"
+                        enctype="multipart/form-data">
+                        <input
+                            class="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-300"
+                            type="hidden" name="id" value="<%= editing ? home._id : '' %>">
+
+
+                        <input
+                            class="w-full my-0.5 border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-300"
+                            type="text" name="name" value="<%= editing ? home.name : '' %>"
+                            placeholder="Enter Your Name" />
+
+                        <input
+                            class="w-full my-0.5 border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-300"
+                            type="text" name="address" value="<%= editing ? home.address : '' %>"
+                            placeholder="Enter Your House Address" />
+
+
+
+                        <input
+                            class="w-full my-0.5 border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-300"
+                            type="text" name="price" value="<%= editing ? home.price : '' %>"
+                            placeholder="Price Per Night" />
+
+
+
+                        <input
+                            class="w-full my-0.5 border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-300"
+                            type="text" name="rating" value="<%= editing ? home.rating : '' %>" placeholder="Rating" />
+
+
+
+                        <input
+                            class="w-full my-0.5 border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-300"
+                            type="file" name="profile" accept="image/jpg, image/jpeg, image/png"
+                            class="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-300 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-red-100 file:text-red-600 hover:file:bg-red-200" />
+
+
+
+                        <textarea class="w-full mb-2 my-1" name="description"
+                            placeholder="Describe your house"><%= editing ? home.description : '' %></textarea>
+
+
+                        <button class="bg-red-400 text-white px-2 rounded-lg hover:bg-red-600 hover:text-red-200"
+                            type="submit">
+                            <%= editing ? "Update Home" : "Add Home" %>
+                        </button>
+                    </form>
+
+                </div>
+            </main>
+    </body>
+
+    </html>

@@ -1,0 +1,53 @@
+<%- include('../partials/head') %>
+
+  <body>
+    <%- include('../partials/header') %>
+      <main class="flex items-center justify-center mt-15">
+        <div class="w-fit shadow-lg shadow-red-300 rounded-lg p-4">
+          <h1 class="text-red-400 text-center text-2xl">
+            Welcome to airbnb Home Page
+          </h1>
+          <ul class="flex flex-wrap justify-center gap-4 mt-6">
+            <% registerdHomes && registerdHomes.forEach((home, i)=> { %>
+              <li class="w-64 bg-white rounded-lg shadow-sm overflow-hidden border">
+
+                <!-- Image -->
+                <div class="h-32 w-full bg-gray-200">
+                  <img src="<%= home.profile %>" alt="Home image" class="object-cover h-full w-full">
+                </div>
+
+                <!-- Content -->
+                <div class="p-3">
+                  <h3 class="text-lg font-semibold text-gray-800 mb-1">
+                    <%= home.name %>
+                  </h3>
+
+                  <p class="text-xs text-gray-600 mb-1">
+                    <span class="font-medium">Address:</span>
+                    <%= home.address %>
+                  </p>
+
+                  <p class="text-xs text-gray-600 mb-1">
+                    <span class="font-medium">Price:</span> Rs <%= home.price %>
+                  </p>
+
+                  <p class="text-xs text-yellow-500 font-medium">
+                    <span class="text-gray-700">Rating:</span>
+                    <%= home.rating %> ⭐
+                  </p>
+                  <button class="bg-green-400 rounded-lg mt-1.5 px-2">Book</button>
+                </div>
+
+              </li>
+              <% }) %>
+          </ul>
+
+
+
+
+
+        </div>
+      </main>
+  </body>
+
+  </html>
