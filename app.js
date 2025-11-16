@@ -10,7 +10,7 @@ const { default: mongoose } = require("mongoose");
 const multer = require("multer");
 
 const DB_Path =
-  "mongodb+srv://root123:root123@airbnb-db.2vgdywt.mongodb.net/airbnb?appName=airbnb-DB";
+  "mongodb+srv://____:____@airbnb-db.2vgdywt.mongodb.net/airbnb?appName=airbnb-DB";
 
 //local modules
 const storeRouter = require("./routes/storeRouter");
